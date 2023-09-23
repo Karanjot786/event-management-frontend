@@ -1,22 +1,18 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
-import { BrowserRouter } from "react-router-dom";
-import { NotesProvider } from "./context/NotesContext";
-import { UserProvider } from "./context/UserContext";
-import { AlertProvider } from "./context/AlertContext";
+// Material Dashboard 2 React Context Provider
+import { MaterialUIControllerProvider } from "./context";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const container = document.getElementById("app");
+const root = createRoot(container);
+
 root.render(
   <BrowserRouter>
-    <AlertProvider>
-      <UserProvider>
-        <NotesProvider>
-          <App />
-        </NotesProvider>
-      </UserProvider>
-    </AlertProvider>
+    <MaterialUIControllerProvider>
+      <App />
+    </MaterialUIControllerProvider>
   </BrowserRouter>
 );
